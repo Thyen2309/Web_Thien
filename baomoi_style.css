@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+body {
+    margin: auto;
+    background-color: rgba(248, 239, 239, 0.863);
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+    background: #fff;
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.menu-btn {
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.logo {
+
+    color: #000;
+}
+
+.logo img {
+    width: 150px;
+    height: 150px;
+}
+
+.icon {
+    background: #ffd400;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    height: 36px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.search-box .icon {
+    padding: 8px 12px;
+    background: transparent;
+    color: #000;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 200px;
+}
+
+.search-box:focus-within .icon {
+    color: #555;
+}
+
+.search-box:focus-within {
+    border-color: #999;
+}
+
+.main-menu {
+    justify-content: center;
+    display: flex;
+    gap: 18px;
+    padding: 10px 40px;
+    border-top: 1px solid #eee;
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+}
+
+.main-menu a:hover {
+    color: #0077ff;
+}
+
+.main {
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+    gap: 6px;
+}
+
+.left {
+    float: left;
+    max-width: 20%;
+    margin-left: 100px;
+}
+
+.left.noidung_t {
+    margin-bottom: 20px;
+}
+
+.left img {
+    width: 100%;
+}
+
+.left h5 {
+    font-size: 15px;
+    margin-top: 8px;
+}
+
+.center {
+    max-width: 45%;
+
+}
+
+.center img {
+    width: 100%;
+}
+
+.center h3 {
+    font-size: 26px;
+    margin: 12px 0;
+}
+
+.center p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.right {
+    float: right;
+    max-width: 15%;
+    margin-right: 100px;
+}
+
+.right .noidung_p {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 16px;
+}
+
+.right img {
+    width: 90px;
+    height: auto;
+    object-fit: cover;
+}
+
+.right p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.4;
+}
+.anhkhung{
+    margin-top: 30px;
+    text-align: center;
+}
