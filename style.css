@@ -301,3 +301,15 @@ body {
     height: 90px;    
     object-fit: cover; 
 }
+.anhcuoi{
+    text-align: center;
+}
+
+.anhslidengang{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4,2fr);
+    padding: 10px;
+    overflow: hidden;
+    
+}
