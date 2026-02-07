@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <title>Nguyễn Duy Thiện</title>
 <link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 <body>
     <div id="header">
@@ -31,6 +33,215 @@
         </div>
         </div>                       
     </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 4</div>
+  <img src="image/jujusu.jpg" style="width:100%">
+  <div class="text">1</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 4</div>
+  <img src="image/khien2.jpg" style="width:100%">
+  <div class="text">2</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 4</div>
+  <img src="image/khien3.jpg" style="width:100%">
+  <div class="text">3</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">4 / 4</div>
+  <img src="image/khien3.png" style="width:100%">
+  <div class="text">4</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+</div>
+
+<script>
+let slideIndex = 1;
+// Lấy các phần tử từ giao diện
+const sliderContainer = document.querySelector('.slider-container');
+const slides = document.getElementsByClassName("mySlides");
+const dots = document.getElementsByClassName("dot");
+
+// Khởi chạy lần đầu tiên khi load trang
+showSlides(slideIndex);
+
+// Hàm điều khiển nút bấm Tiến (n=1) hoặc Lùi (n=-1)
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Hàm điều khiển khi click trực tiếp vào các dấu chấm dưới ảnh
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+// Hàm xử lý hiển thị chính
+function showSlides(n) {
+  let i;
+  // Nếu đi quá ảnh cuối cùng thì quay lại ảnh đầu
+  if (n > slides.length) {slideIndex = 1}    
+  // Nếu lùi quá ảnh đầu tiên thì nhảy đến ảnh cuối cùng
+  if (n < 1) {slideIndex = slides.length}
+  
+  // Bước 1: Ẩn tất cả các slide đi
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  
+  // Bước 2: Xóa bỏ lớp "active" của tất cả các dấu chấm
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  
+  // Bước 3: Hiển thị đúng slide hiện tại và làm sáng dấu chấm tương ứng
+  if (slides[slideIndex-1]) {
+    slides[slideIndex-1].style.display = "block";  
+  }
+  if (dots[slideIndex-1]) {
+    dots[slideIndex-1].className += " active";
+  }
+}
+
+// --- HỆ THỐNG TỰ ĐỘNG CHẠY (AUTOPLAY) ---
+
+// Đặt thời gian chờ là 2 giây (2000ms)
+const timer = 2000; 
+
+// Tạo một hàm khởi động autoplay để dùng lại nhiều lần
+function startAutoPlay() {
+    return setInterval(() => {
+        plusSlides(1);
+    }, timer);
+}
+
+// Bắt đầu chạy tự động ngay khi vào trang
+let autoPlay = startAutoPlay();
+
+// Xử lý thông minh: Dừng khi rê chuột vào, chạy lại khi bỏ chuột ra
+if (sliderContainer) {
+    sliderContainer.addEventListener('mouseenter', () => {
+        clearInterval(autoPlay); // Tạm dừng đồng hồ
+    });
+
+    sliderContainer.addEventListener('mouseleave', () => {
+        autoPlay = startAutoPlay(); // Chạy tiếp từ vị trí hiện tại
+    });
+}
+</script>
+<h2 style="text-align: center;">Phim hot năm nay</h2>
     <div class="banner">
         <img src="anhtrungtam/5b35bd928b72d8d921dec48baffeb558.jpg" width="100%" height="100%">
         <h2 style="text-align: center;color: blue;">Bộ Phim Hot Nhất Năm Nay Đã Ra Season 2</h2>
@@ -78,13 +289,65 @@
             <h3>chưa có chủ đề nào để xây dựng hình tượng nhân vật ngầu tránh đi sự lãng sẹt của nhân vật ko có chiều sâu cốt truyện</h3>
         </div>
     </div>
-
-
-
-
+    <div class ="anhcuoi">
+        <div class ="anh">
+            <img src="anhtrungtam/2298db97dfdf36816fce.jpg.avif">
+            <p>Lễ đón Tổng Bí thư Tô Lâm thăm cấp Nhà nước tới CHDCND Lào</p>
+        </div>
+    </div>
+    <div class="slider-container">
+    
+    <div class="cua-so-khung">
+    <button class="nav-btn prev-btn" onclick="prevSlide()">&#10094;</button>
+    <button class="nav-btn next-btn" onclick="nextSlide()">&#10095;</button>
+    <div class="anhslidengang">
+        <div class="slide1">
+            <img src="image/1.png" width="300px" height="300px">
+            <p>so1</p>
+            <h3>Xem Them...</h3>
+        </div>
+        <div class="slide2">
+            <img src="image/1.png" width="300px" height="300px">
+            <p>so2</p>
+            <h3>Xem Them...</h3>
+        </div>
+        <div class="slide3">
+            <img src="image/1.png" width="300px" height="300px">
+            <p>so3</p>
+            <h3>Xem them...</h3>
+        </div>
+        <div class="slide4">
+            <img src="image/1.png" width="300px" height="300px">
+            <p>so4</p>
+            <h3>Xem Them...</h3>
+        </div>
+        <div class="slide4">
+            <img src="image/1.png" width="300px" height="300px">
+            <p>so4</p>
+            <h3>Xem Them...</h3>
+        </div>
+        <div class="slide4">
+            <img src="image/1.png" width="300px" height="300px">
+            <p>so4</p>
+            <h3>Xem Them...</h3>
+        </div>
+        <div class="slide4">
+            <img src="image/1.png" width="300px" height="300px">
+            <p>so4</p>
+            <h3>Xem Them...</h3>
+        </div>
+        <div class="slide4">
+            <img src="image/1.png" width="300px" height="300px">
+            <p>so4</p>
+            <h3>Xem Them...</h3>
+        </div>
+    </div>
+    </div>
+    </div>
     
     <div id="footer">
         <p style="text-align: center; padding-top: 30px;">© 2024 Nguyễn Duy Thiện. All rights reserved.</p>
     </div>
+    <script src="main.js"></script>
 </body>
-</html>
+</html> 

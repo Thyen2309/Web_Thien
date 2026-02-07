@@ -301,3 +301,54 @@ body {
     height: 90px;    
     object-fit: cover; 
 }
+.anhcuoi{
+    text-align: center;
+}
+
+.anhslidengang{
+    text-align: center;
+    display: flex;
+    padding: 10px;
+    width: max-content;
+    min-width: 300px;
+    gap:20px;
+    min-width: 300px;
+    width: max-content;
+}
+.cua-so-khung {
+    width: 1280px;  
+    margin: auto;
+    overflow: hidden;
+}
+.slider-container {
+    position: relative; /* Làm gốc để các nút căn theo */
+    width: 1300px;      /* Khoảng 4 ảnh + gap */
+    margin: 50px auto;
+    text-align: center;
+}
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%); /* Căn giữa nút theo chiều dọc */
+    background-color: rgba(0, 0, 0, 0.5); /* Nền đen mờ */
+    color: white;
+    border: none;
+    font-size: 30px;
+    padding: 15px 10px;
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.3s;
+}
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Di chuột vào thì đen đậm hơn */
+}
+
+.prev-btn { left: -50px; } /* Đẩy nút sang trái khung */
+.next-btn { right: -50px; } /* Đẩy nút sang phải khung */
+
+.anhslidengang img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
