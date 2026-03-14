@@ -26,7 +26,8 @@ body {
     margin: 0;
     align-items: center;
     padding: 2px 20px;
-    
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 .search-wrapper {
     display: flex;
@@ -81,15 +82,37 @@ body {
 .menu a {
     display: flex;
     float: left;
-    color: black;
+    color: white;
     text-decoration: none;
     padding: 25px 15px;
     font-size: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    position: relative;
 }
 
 .menu a:hover {
-    color: red;
-    background-color: #555;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Highlight Bootstrap link */
+.menu a:nth-child(5) {
+    background: rgba(255, 215, 0, 0.3);
+    border: 2px solid #ffd700;
+    font-weight: 700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    color: #ffe66d;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.menu a:nth-child(5):hover {
+    background: rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.8), 0 8px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px) scale(1.05);
 }
 
 .dropdown {
