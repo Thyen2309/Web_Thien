@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký Tài Khoản</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Container chính */
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            background-color: #1877f2;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .logo-circle {
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #1877f2;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        /* Form wrapper */
+        .form-wrapper {
+            padding: 30px;
+        }
+
+        /* Fieldset styling */
+        fieldset {
+            border: none;
+            padding: 0;
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        fieldset:last-of-type {
+            margin-bottom: 0;
+        }
+
+        legend {
+            font-size: 16px;
+            font-weight: 600;
+            color: #050505;
+            margin-bottom: 15px;
+            padding: 0 0 10px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        /* Form group (hai input cạnh nhau) */
+        .form-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 16px;
+        }
+
+        /* Label styling */
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #050505;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+
+        .required::after {
+            content: " *";
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        /* Input field styling */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        input[type="date"],
+        select {
+            padding: 10px 12px;
+            border: 1px solid #cced0d;
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: #f0f2f5;
+            color: #050505;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus,
+        select:focus {
+            outline: none;
+            background-color: #fff;
+            border-color: #1877f2;
+            box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.1);
+        }
+
+        /* Select dropdown */
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23050505' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 20px;
+            padding-right: 38px;
+        }
+
+        /* Button group */
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        /* Button styling */
+        button {
+            flex: 1;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .btn-signup {
+            background-color: #1877f2;
+            color: white;
+        }
+
+        .btn-signup:hover {
+            background-color: #165ac8;
+            box-shadow: 0 4px 8px rgba(24, 119, 242, 0.3);
+        }
+
+        .btn-signup:active {
+            background-color: #0d47a1;
+        }
+
+        .btn-cancel {
+            background-color: #e4e6eb;
+            color: #050505;
+            border: 2px solid #1877f2;
+        }
+
+        .btn-cancel:hover {
+            background-color: #d0d2d7;
+        }
+
+        .btn-cancel:active {
+            background-color: #bcc0c4;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .container {
+                max-width: 100%;
+                border-radius: 0;
+            }
+
+            .form-wrapper {
+                padding: 20px;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .form-row .form-group {
+                margin-bottom: 16px;
+            }
+
+            .header {
+                padding: 20px 15px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .logo-circle {
+                width: 50px;
+                height: 50px;
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-circle">f</div>
+            <h1>Đăng Ký Tài Khoản</h1>
+        </div>
+
+        <!-- Form -->
+        <form class="form-wrapper">
+            <!-- Fieldset: Thông tin cá nhân -->
+            <fieldset>
+                <legend>Thông tin cá nhân</legend>
+
+                <!-- Họ và Tên -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName" class="required">Họ</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Nhập họ của bạn" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName" class="required">Tên</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Nhập tên của bạn" required>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email" class="required">Email</label>
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+                </div>
+
+                <!-- Số điện thoại -->
+                <div class="form-group">
+                    <label for="phone" class="required">Số điện thoại</label>
+                    <input type="tel" id="phone" name="phone" placeholder="0912345678" required>
+                </div>
+
+                <!-- Ngày sinh và Giới tính -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dob" class="required">Ngày sinh</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender" class="required">Giới tính</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Chọn giới tính</option>
+                            <option value="male">Nam</option>
+                            <option value="female">Nữ</option>
+                            <option value="other">Khác</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Fieldset: Bảo mật -->
+            <fieldset>
+                <legend>Bảo mật</legend>
+
+                <!-- Mật khẩu -->
+                <div class="form-group">
+                    <label for="password" class="required">Mật khẩu</label>
+                    <input type="password" id="password" name="password" placeholder="Nhập mật khẩu (tối thiểu 6 ký tự)" required>
+                </div>
+
+                <!-- Xác nhận mật khẩu -->
+                <div class="form-group">
+                    <label for="confirmPassword" class="required">Xác nhận mật khẩu</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Xác nhận mật khẩu của bạn" required>
+                </div>
+            </fieldset>
+
+            <!-- Button group -->
+            <div class="button-group">
+                <button type="submit" class="btn-signup">Đăng Ký</button>
+                <button type="reset" class="btn-cancel">Hủy Bỏ</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
